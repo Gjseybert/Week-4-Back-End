@@ -1,0 +1,107 @@
+public class ArrayExamples {
+
+    public static void main(String[] args) {
+        int[] ages = {3, 9, 23, 64, 2, 8, 28, 93};
+
+        int result = ages[ages.length - 1] - ages[0];
+        System.out.println("Result of subtraction: " + result);
+
+        int[] ages2 = new int[9];
+
+        int result2 = ages2[ages2.length - 1] - ages2[0];
+        System.out.println("Result of subtraction (ages2): " + result2);
+
+        int sum = 0;
+        for (int age : ages) {
+            sum += age;
+        }
+        double average = (double) sum / ages.length;
+        System.out.println("Average age: " + average);
+
+        String[] names = {"Sam", "Tommy", "Tim", "Sally", "Buck", "Bob"};
+
+        int totalLetters = 0;
+        for (String name : names) {
+            totalLetters += name.length();
+        }
+        double avgLetters = (double) totalLetters / names.length;
+        System.out.println("Average number of letters per name: " + avgLetters);
+
+        StringBuilder concatenatedNames = new StringBuilder();
+        for (String name : names) {
+            concatenatedNames.append(name).append(" ");
+        }
+        System.out.println("Concatenated names: " + concatenatedNames.toString().trim());
+
+        int[] nameLengths = new int[names.length];
+        for (int i = 0; i < names.length; i++) {
+            nameLengths[i] = names[i].length();
+        }
+
+        int sumOfNameLengths = 0;
+        for (int length : nameLengths) {
+            sumOfNameLengths += length;
+        }
+        System.out.println("Sum of name lengths: " + sumOfNameLengths);
+
+        System.out.println(repeatWord("Hello", 3));
+
+        System.out.println(getFullName("John", "Doe"));
+
+        System.out.println(isSumGreaterThan100(ages));
+
+        double[] doubleArray = {1.0, 2.5, 3.7, 4.2};
+        System.out.println(calculateAverage(doubleArray));
+
+        double[] array1 = {1.0, 2.0, 3.0};
+        double[] array2 = {2.0, 3.0, 4.0};
+        System.out.println(isFirstArrayAverageGreaterThanSecond(array1, array2));
+
+        System.out.println(willBuyDrink(true, 15.0));
+    }
+
+    private static String repeatWord(String word, int n) {
+        StringBuilder result = new StringBuilder();
+        for (int i = 0; i < n; i++) {
+            result.append(word);
+        }
+        return result.toString();
+    }
+
+    private static String getFullName(String firstName, String lastName) {
+        return firstName + " " + lastName;
+    }
+
+    private static boolean isSumGreaterThan100(int[] array) {
+        int sum = 0;
+        for (int num : array) {
+            sum += num;
+        }
+        return sum > 100;
+    }
+
+    private static double calculateAverage(double[] array) {
+        double sum = 0;
+        for (double num : array) {
+            sum += num;
+        }
+        return sum / array.length;
+    }
+
+    private static boolean isFirstArrayAverageGreaterThanSecond(double[] array1, double[] array2) {
+        return calculateAverage(array1) > calculateAverage(array2);
+    }
+
+    private static boolean willBuyDrink(boolean isHotOutside, double moneyInPocket) {
+        return isHotOutside && moneyInPocket > 10.50;
+    }
+
+    private static int[] addArrays(int[] array1, int[] array2) {
+        int length = Math.min(array1.length, array2.length);
+        int[] result = new int[length];
+        for (int i = 0; i < length; i++) {
+            result[i] = array1[i] + array2[i];
+        }
+        return result;
+    }
+}
